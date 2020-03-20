@@ -81,19 +81,21 @@
             }
             lilist[i].onmouseover=function(){
                 this.style.marginTop=5+"px";
+                this.nextSibling.style.opacity=0.8;
             }
             lilist[i].onmouseout=function(){
                 this.style.marginTop=25+"px";
+                this.nextSibling.style.opacity=0;
             }
         }
-        for(var i=0;i<list1.length;i++){
+        /*for(var i=0;i<list1.length;i++){
             list1[i].onmouseover=function(){
                 this.childNodes[1].style.opacity=0.8;
             }
             list1[i].onmouseout=function(){
                 this.childNodes[1].style.opacity=0;
             }
-        }
+        }*/
     }
 </script>
 </html>
