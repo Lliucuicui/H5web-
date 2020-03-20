@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 800px;
+            color: rgb(108,108,108);
+        }
+        #p1{
+            color: red;
+            font-size: 50px;
+        }
+        .box1{
+            display: inline-block;
+            border: solid 1px rgb(108,108,108);
+            width: 750px;
+            height: 100px;
+            margin: 0 auto;
+        }
+        .a{
+            width: 40px;
+            height: 80px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .b{
+            width:30px;
+            height: 50px;
+            margin-right: 20px;
+            margin-top: 25px;
+            position: absolute;
+        }
+        .d1{
+            opacity: 0;
+            width: 40px;
+            height: 25px;
+            border: solid 1px black;
+            margin-top: 75px;
+        }
+        #box2{
+            background-color:rgb(168,168,168);
+            width: 700px;
+            height: 150px; 
+            margin: 0 auto;
+        }
+        #p2{
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <fieldset class="box">
+        <legend><p id="p1">网页换肤</p></legend>
+        <ul class="box1">
+            <li class="a"><div class="b" style="background-color: rgb(168,168,168);"></div><div class="d1">灰色</div></li>
+            <li class="a"><div class="b" style="background-color: rgb(152,110,217);"></div><div class="d1">紫色</div></li>
+            <li class="a"><div class="b" style="background-color: rgb(255,201,246);"></div><div class="d1">粉色</div></li>
+            <li class="a"><div class="b" style="background-color: rgb(145,255,255);"></div><div class="d1">淡蓝</div></li>
+            <li class="a"><div class="b" style="background-color: rgb(255,255,38);"></div><div class="d1">黄色</div></li>
+            <li class="a"><div class="b" style="background-color: rgb(32,255,59);"></div><div class="d1">绿色</div></li>
+        </ul>
+        <div id="box2">
+           <p id="p2">LocalStorage将数据保存在客户端本地的硬件设备中，即使浏览器被关闭了，该数据仍然存在，下次打开浏览器访问网站时仍然可以继续使用。</p> 
+        </div>
+    </fieldset>
+</body>
+<script type="text/javascript">
+    var lilist=document.getElementsByClassName("b");
+    var list=document.getElementsByClassName("d1");
+    var box2=document.getElementById("box2");
+    var list1=document.getElementsByClassName("a");
+    window.onload=function(){
+        box2.style.backgroundColor=localStorage.getItem("nbc");
+        for(var i=0; i<lilist.length; i++){
+            lilist[i].onclick=function(){
+                var bc=this.style.backgroundColor;
+                box2.style.backgroundColor=this.style.backgroundColor;
+                localStorage.setItem("nbc",bc);
+            }
+            lilist[i].onmouseover=function(){
+                this.style.marginTop=5+"px";
+            }
+            lilist[i].onmouseout=function(){
+                this.style.marginTop=25+"px";
+            }
+        }
+        for(var i=0;i<list1.length;i++){
+            list1[i].onmouseover=function(){
+                this.childNodes[1].style.opacity=0.8;
+            }
+            list1[i].onmouseout=function(){
+                this.childNodes[1].style.opacity=0;
+            }
+        }
+    }
+</script>
+</html>
